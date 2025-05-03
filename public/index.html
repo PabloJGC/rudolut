@@ -156,7 +156,7 @@
     /* --- Charts Section --- */
     .charts-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
 
@@ -166,6 +166,9 @@
       padding: 24px;
       box-shadow: var(--shadow);
       height: 400px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
     }
 
     .chart-header {
@@ -176,7 +179,7 @@
     }
 
     .chart-title {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
       margin: 0;
     }
@@ -200,12 +203,53 @@
       margin-right: 6px;
     }
 
+    .chart-container {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pie-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    .pie-chart-wrapper {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 270px;
+      padding: 0;
+    }
+
     /* Responsive Adjustments */
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       .charts-container {
         grid-template-columns: 1fr;
       }
       
+      .chart-card {
+        height: 380px;
+      }
+      
+      .pie-container {
+        max-width: 500px;
+      }
+      
+      .pie-chart-wrapper {
+        min-height: 290px;
+      }
+    }
+
+    @media (max-width: 768px) {
       .stats-container {
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       }
@@ -264,7 +308,9 @@
           <option value="1y">Last year</option>
         </select>
       </div>
-      <canvas id="monthlySavingsChart"></canvas>
+      <div class="chart-container">
+        <canvas id="monthlySavingsChart"></canvas>
+      </div>
       <div class="chart-legend">
         <div class="legend-item">
           <div class="legend-color" style="background-color: rgba(40, 167, 69, 0.6)"></div>
@@ -285,7 +331,11 @@
           <option value="3m">Last 3 months</option>
         </select>
       </div>
-      <canvas id="spendingBreakdownChart"></canvas>
+      <div class="pie-container">
+        <div class="pie-chart-wrapper">
+          <canvas id="spendingBreakdownChart"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -334,7 +384,6 @@
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 2,
         scales: {
           y: {
             beginAtZero: true,
@@ -383,13 +432,36 @@
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true,
-        aspectRatio: 1.5,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
-            position: 'right'
+            position: 'bottom',
+            labels: {
+              boxWidth: 12,
+              padding: 10,
+              font: {
+                size: 13
+              }
+            }
+          },
+          tooltip: {
+            bodyFont: {
+              size: 12
+            },
+            titleFont: {
+              size: 13
+            }
           }
-        }
+        },
+        layout: {
+          padding: {
+            top: 5,
+            bottom: 5,
+            left: 5,
+            right: 5
+          }
+        },
+        cutout: '60%'
       }
     });
 
