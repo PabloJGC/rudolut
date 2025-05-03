@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rudolut Habit Tracker</title>
+  <style>
+    /* --- Design System: Color Palette --- */
+    :root {
+      --primary-blue: #A0D2DB;
+      --primary-green: #A8D8B9;
+      --background: #F8F9FA;
+      --surface: #FFFFFF;
+      --text-primary: #212529;
+      --text-secondary: #6C757D;
+      --accent-positive: #28A745;
+      --accent-warning: #FFC107;
+      --accent-negative: #DC3545;
+    }
+
+    /* --- Global Styles --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: bold;
+    }
+
+    h1 { font-size: 34px; }
+    h2 { font-size: 28px; }
+    h3 { font-size: 22px; }
+    p, span, input, button {
+      font-size: 17px;
+    }
+
+    small {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* --- Reusable Utility Classes --- */
+    .container {
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-blue);
+      color: var(--text-primary);
+    }
+
+    .btn-success {
+      background-color: var(--accent-positive);
+      color: #fff;
+    }
+
+    .btn-danger {
+      background-color: var(--accent-negative);
+      color: #fff;
+    }
+
+    /* --- Habit Tracker Layout --- */
+    .habit-tracker-header {
+      font-size: 34px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .progress-ring-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .key-stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .metric {
+      background-color: var(--surface);
+      border-radius: 12px;
+      padding: 15px;
+      margin: 10px;
+      width: 200px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .metric h4 {
+      font-size: 20px;
+      color: var(--text-primary);
+    }
+
+    .metric-value {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--text-primary);
+    }
+
+    /* --- Progress Ring Styles --- */
+    .progress-ring {
+      position: relative;
+      width: 120px;
+      height: 120px;
+    }
+
+    .progress-ring circle {
+      fill: none;
+      stroke-width: 15;
+    }
+
+    .progress-ring-background {
+      stroke: var(--text-secondary);
+      opacity: 0.3;
+    }
+
+    .progress-ring-foreground {
+      stroke: var(--accent-positive);
+      stroke-linecap: round;
+      stroke-dasharray: 440; /* Circumference of circle */
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 1s ease;
+    }
+
+    /* --- Simple Chart Placeholder --- */
+    .chart-container {
+      margin-top: 30px;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="habit-tracker-header">Your Financial Habits</div>
+
+    <!-- Progress Rings -->
+    <div class="progress-ring-container">
+      <div class="progress-ring" id="savingsGoalRing">
+        <svg>
+          <circle class="progress-ring-background" cx="60" cy="60" r="55"></circle>
+          <circle class="progress-ring-foreground" cx="60" cy="60" r="55" stroke-dashoffset="150"></circle>
+        </svg>
+        <div class="progress-ring-text" id="savingsGoalText">70%</div>
+      </div>
+      <div class="progress-ring" id="budgetAdherenceRing">
+        <svg>
+          <circle class="progress-ring-background" cx="60" cy="60" r="55"></circle>
+          <circle class="progress-ring-foreground" cx="60" cy="60" r="55" stroke-dashoffset="50"></circle>
+        </svg>
+        <div class="progress-ring-text" id="budgetAdherenceText">90%</div>
+      </div>
+    </div>
+
+    <!-- Key Stats -->
+    <div class="key-stats-container">
+      <div class="metric">
+        <h4>Days Saved Streak</h4>
+        <div class="metric-value" id="savedStreak">12</div>
+      </div>
+      <div class="metric">
+        <h4>Days Under Budget (This Month)</h4>
+        <div class="metric-value" id="daysUnderBudget">8 / 30</div>
+      </div>
+      <div class="metric">
+        <h4>Total Saved (This Month)</h4>
+        <div class="metric-value" id="totalSaved">€210.50</div>
+      </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="chart-container">
+      <h3>Monthly Savings Trend</h3>
+      <canvas id="monthlySavingsChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+      <h3>Spending Breakdown</h3>
+      <canvas id="spendingBreakdownChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    // Simulated Data
+    const savingsData = [200, 250, 300, 400, 350, 450]; // Actual savings for last 6 months
+    const savingsTarget = [300, 300, 300, 300, 300, 300]; // Monthly target for savings
+    const spendingCategories = ['Food', 'Entertainment', 'Transportation', 'Subscriptions', 'Other'];
+    const spendingData = [100, 50, 80, 30, 40]; // Spending in these categories for the current month
+
+    // Monthly Savings Bar Chart
+    const monthlySavingsCtx = document.getElementById('monthlySavingsChart').getContext('2d');
+    const monthlySavingsChart = new Chart(monthlySavingsCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [
+          {
+            label: 'Actual Savings (€)',
+            data: savingsData,
+            backgroundColor: 'rgba(40, 167, 69, 0.6)',
+            borderColor: 'rgba(40, 167, 69, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'Target Savings (€)',
+            data: savingsTarget,
+            backgroundColor: 'rgba(23, 162, 184, 0.6)',
+            borderColor: 'rgba(23, 162, 184, 1)',
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Spending Breakdown Pie Chart
+    const spendingBreakdownCtx = document.getElementById('spendingBreakdownChart').getContext('2d');
+    const spendingBreakdownChart = new Chart(spendingBreakdownCtx, {
+      type: 'pie',
+      data: {
+        labels: spendingCategories,
+        datasets: [{
+          data: spendingData,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)'
+          ],
+          borderWidth: 1
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
