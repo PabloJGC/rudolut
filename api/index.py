@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, jsonify
 import os
 
 app = Flask(__name__, static_folder='../public', static_url_path='')
@@ -25,15 +25,16 @@ def get_days_under_budget():
 
 @app.route('/get_latest_category_expenses/<n>', methods=['GET'])
 def get_latest_category_expenses(n):
-    return '19'
+    return jsonify({'latest_category_expenses':  [100, 50, 80, 30, 40]})
 
 @app.route('/get_latest_spending_categories/<n>', methods=['GET'])
 def get_latest_spending_categories(n):
-    return '19'
+    return jsonify({'latest_spending_categories':  ['Food', 'Entertainment', 'Transportation', 'Subscriptions', 'Other']})
 
 @app.route('/get_latest_savings/<months>', methods=['GET'])
 def get_latest_savings(months):
-    return str([200, 300, 400, 500, 600, 700, 800, 900, 1000])
+    jsonify({'latest_savings': [200, 300, 400, 500, 600, 700, 800, 900, 1000]})
+    # return str([200, 300, 400, 500, 600, 700, 800, 900, 1000])
 
 @app.route('/about', methods=['GET'])
 def about():
