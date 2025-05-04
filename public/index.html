@@ -729,14 +729,19 @@
   <script>
     fetchData(); // Call the function to fetch data from the server
     async function fetchData() {
-      var monthlyBudgetText = document.getElementById('monthBudget').textContent;
-      var monthlyBudget = await fetch('/get_monthly_budget'); // Fetch monthly budget from server
-      monthlyBudget = await monthlyBudget.text();
-      monthlyBudgetText.textContent = '€' + monthlyBudget; // Update the displayed budget
-      var daysUnderBudgetText = document.getElementById('daysUnderBudget').textContent;
-      var daysUnderBudget = await fetch('/get_days_under_budget'); // Fetch days under budget from server
-      daysUnderBudget = await daysUnderBudget.text();
-      daysUnderBudgetText.textContent = '€' + daysUnderBudget; // Update the displayed days under budget
+      // Get references to the DOM elements
+      const monthlyBudgetElement = document.getElementById('monthBudget');
+      const daysUnderBudgetElement = document.getElementById('daysUnderBudget');
+
+      // Fetch and update monthly budget
+      const monthlyBudgetResponse = await fetch('/get_monthly_budget');
+      const monthlyBudgetText = await monthlyBudgetResponse.text();
+      monthlyBudgetElement.textContent = '€' + monthlyBudgetText;
+
+      // Fetch and update days under budget
+      const daysUnderBudgetResponse = await fetch('/get_days_under_budget');
+      const daysUnderBudgetText = await daysUnderBudgetResponse.text();
+      daysUnderBudgetElement.textContent = daysUnderBudgetText + ' days';
 
 
       // Sidebar toggle functionality
