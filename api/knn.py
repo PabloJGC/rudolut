@@ -26,7 +26,6 @@ def knn_predict(data):
     scaler = MinMaxScaler()
     data_scaled = scaler.fit_transform(data)
 
-    # Make predictions
     predictions = knn_bs.predict(data_scaled)
 
     # Inverse transform the predictions to get the original scale
