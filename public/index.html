@@ -731,10 +731,12 @@
     async function fetchData() {
       var monthlyBudgetText = document.getElementById('monthBudget').textContent;
       var monthlyBudget = await fetch('/get_monthly_budget'); // Fetch monthly budget from server
-      monthlyBudgetText.textContent = '€' + monthlyBudget.text(); // Update the displayed budget
+      monthlyBudget = await monthlyBudget.text();
+      monthlyBudgetText.textContent = '€' + monthlyBudget; // Update the displayed budget
       var daysUnderBudgetText = document.getElementById('daysUnderBudget').textContent;
       var daysUnderBudget = await fetch('/get_days_under_budget'); // Fetch days under budget from server
-      daysUnderBudgetText.textContent = '€' + daysUnderBudget.text(); // Update the displayed days under budget
+      daysUnderBudget = await daysUnderBudget.text();
+      daysUnderBudgetText.textContent = '€' + daysUnderBudget; // Update the displayed days under budget
 
 
       // Sidebar toggle functionality
