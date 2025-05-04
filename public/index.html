@@ -900,10 +900,18 @@
     });
 
     document.querySelector('.send-money').addEventListener('click', function() {
-      alert('Send Money feature clicked');
-      // Here you would implement the send money functionality
+      evaluateLLM(prompt("How much money?")); // Call the function to evaluate LLM
     });
     
+    async function evaluateLLM(tx_value) {
+      tx_value_str = tx_value.toString()
+      const response = await fetch('/get_behavior_analysis/'+tx_value_str, {
+        method: 'POST'
+      });
+      const data = await response.json();
+      alert(data.reasoning);
+    }
+
     // Notification system functions
     function dismissNotification(button) {
       const notificationItem = button.closest('.notification-item');
