@@ -771,7 +771,6 @@
       var spendingDataResponse = await fetch('/get_latest_category_expenses/5'); // Spending in these categories for the current month
       var spendingData = await spendingDataResponse.json()
       spendingData = spendingData.latest_category_expenses; // Spending in these categories for the current month
-      alert(spendingDataResponse.json());
 
       var currentMonth = new Date().getMonth() + 1; // Get current month (1-12)
       var lastMonths = [currentMonth - 5, currentMonth - 4, currentMonth - 3, currentMonth - 2, currentMonth - 1, currentMonth]; // Last 6 months
