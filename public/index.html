@@ -728,11 +728,11 @@
 
   <script>
     var monthlyBudgetText = document.getElementById('monthBudget').textContent;
-    var monthlyBudget = parseFloat(await fetch('http://localhost:3000/get_monthly_budget')); // Fetch monthly budget from server
-    monthlyBudgetText.textContent = monthlyBudget; // Update the displayed budget
+    var monthlyBudget = await fetch('http://localhost:3000/get_monthly_budget'); // Fetch monthly budget from server
+    monthlyBudgetText.textContent = '€' + monthlyBudget; // Update the displayed budget
     var daysUnderBudgetText = document.getElementById('daysUnderBudget').textContent;
-    var daysUnderBudget = parseInt(await fetch('http://localhost:3000/get_days_under_budget')); // Fetch days under budget from server
-    daysUnderBudgetText.textContent = daysUnderBudget; // Update the displayed days under budget
+    var daysUnderBudget = await fetch('http://localhost:3000/get_days_under_budget'); // Fetch days under budget from server
+    daysUnderBudgetText.textContent = '€' + daysUnderBudget; // Update the displayed days under budget
 
 
     // Sidebar toggle functionality
