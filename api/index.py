@@ -32,7 +32,7 @@ def get_latest_spending_categories(n):
     return '19'
 
 @app.route('/get_latest_savings/<months>', methods=['GET'])
-def about(months):
+def get_latest_savings(months):
     return str([200, 300, 400, 500, 600, 700, 800, 900, 1000])
 
 @app.route('/about', methods=['GET'])
