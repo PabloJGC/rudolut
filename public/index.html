@@ -906,7 +906,7 @@
     async function evaluateLLM(tx_value) {
       tx_value_str = tx_value.toString()
       const response = await fetch('/get_behavior_analysis/'+tx_value_str, {
-        method: 'POST'
+        method: 'GET'
       });
       const data = await response.json();
       alert(data.reasoning);
