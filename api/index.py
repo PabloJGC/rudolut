@@ -151,7 +151,7 @@ def get_behavior_analysis(value):
     # if not historial or not nueva_tx:
     #     return jsonify({'error': 'Invalid input'}), 400
 
-    result = llm.evaluate_behavior(historial, nueva_tx)
+    result = evaluate_behavior(historial, nueva_tx)
     return jsonify(result)
 
 @app.route('/add_money', methods=['POST'])
