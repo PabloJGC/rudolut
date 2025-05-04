@@ -1,0 +1,110 @@
+mcc,description,risk,explanation
+5812,Eating Places and Restaurants,4,"While occasional restaurant meals can be convenient, they are generally more expensive than cooking at home and are not essential for survival."
+5541,Service Stations,2,"Essential for transportation if you own a vehicle. Fuel is necessary for commuting, errands, etc."
+7996,"Amusement Parks, Carnivals, Circuses",5,Purely recreational and not a necessity.
+5411,"Grocery Stores, Supermarkets",1,Essential for obtaining food to prepare meals at home.
+4784,Tolls and Bridge Fees,2,Necessary if your commute or travel routes require them; essential for certain locations or routes.
+4900,"Utilities - Electric, Gas, Water, Sanitary",1,Essential for maintaining a habitable home.
+5942,Book Stores,4,"Books can be educational or enjoyable, but not essential. Alternatives such as libraries exist. Textbook purchases required for education would be level 2."
+5814,Fast Food Restaurants,4,"Similar to restaurants, fast food is convenient but not essential. Typically less healthy and more expensive than home-cooked meals."
+4829,Money Transfer,3,Can be necessary for supporting family or paying bills. Necessity level depends on specific usage. Some cases could be risk level 1 or 2.
+5311,Department Stores,3,Department stores sell a variety of goods. Some are essential (clothing) while others are not. The average purchase falls in the 'useful but not urgent' category.
+5211,Lumber and Building Materials,3,"Necessary for home repairs or improvements, but typically not essential for basic living. Could be risk level 1 or 2 in emergencies."
+5310,Discount Stores,3,"Similar to department stores, they offer a variety of goods, some of which are essential. The 'discount' aspect makes essentials more accessible."
+3780,Computer Network Services,3,"Internet access is becoming increasingly important for communication, work, and access to information. For remote workers or those who need to use internet for work, it could be ranked as a 2."
+5499,Miscellaneous Food Stores,1,Covers food items not readily available in regular grocery stores. Still food and essential for nutrition.
+4121,Taxicabs and Limousines,2,"Transportation, but typically more expensive than public transit. Important if no other option is available."
+5300,Wholesale Clubs,3,"Offer bulk purchases that can save money on essential items, but require a membership fee and are not strictly necessary."
+5719,Miscellaneous Home Furnishing Stores,4,"Non-essential home items. Can add to the comfort of the home, but are not strictly necessary."
+7832,Motion Picture Theaters,5,Entertainment. Not a necessity.
+5813,Drinking Places (Alcoholic Beverages),5,Alcohol is not necessary for survival. Falls into the entertainment and leisure category.
+4814,Telecommunication Services,2,"Phone service is important for communication, especially in emergencies. Its importance has increased with smartphone ubiquity."
+5661,Shoe Stores,2,Shoes are essential for foot protection and basic attire.
+5977,Cosmetic Stores,5,Cosmetics are generally non-essential personal care items.
+8099,Medical Services,1,"Essential for health and well-being. Includes doctor visits, therapy, etc."
+7538,Automotive Service Shops,2,"Necessary to maintain a vehicle if owning one, and keep it functioning properly for commute."
+5912,Drug Stores and Pharmacies,1,Essential for obtaining medications and health-related supplies.
+4111,Local and Suburban Commuter Transportation,2,Necessary for commuting to work or school.
+5815,"Digital Goods - Media, Books, Apps",4,"Can be a necessary expense (educational apps, required reading material), but often falls into the leisure/entertainment category."
+8021,Dentists and Orthodontists,1,Essential for maintaining oral health.
+5921,"Package Stores, Beer, Wine, Liquor",5,Non-essential and often considered a luxury expense.
+5655,"Sports Apparel, Riding Apparel Stores",4,"Can be a necessity if it's for specific athletic training or workwear, but generally a leisure/hobby expense.  Riding Apparel could be essential for a specific job."
+7230,Beauty and Barber Shops,4,"Personal grooming, generally not essential. Could be essential for certain professions that require a certain level of appearance."
+3390,Miscellaneous Metalwork,3,"Depends on use, could be for business and production, personal projects or home improvement. Categorized as useful."
+7922,Theatrical Producers,5,"Entertainment, generally a luxury expense."
+3722,Passenger Railways,2,"Transportation, potentially a necessity for commuting or travel."
+5651,Family Clothing Stores,2,Necessary for obtaining basic clothing for family members.
+4899,"Cable, Satellite, and Other Pay Television Services",4,"Entertainment expense, but can be a source of news or education."
+5251,Hardware Stores,3,Useful for home repairs and maintenance.
+7995,"Betting (including Lottery Tickets, Casinos)",5,"Gambling, a non-essential and potentially risky expense."
+3596,Miscellaneous Machinery and Parts Manufacturing,3,"Depends on use, could be for business and production, personal projects or home improvement. Categorized as useful."
+3730,Ship Chandlers,3,"Specialized shop related to ship maintenance, useful if needed."
+9402,Postal Services - Government Only,2,"Necessary for sending documents, paying bills, etc."
+7801,"Athletic Fields, Commercial Sports",4,"Leisure/entertainment expense, can be good for health but is not essential."
+5970,"Artist Supply Stores, Craft Shops",4,"Hobby/leisure expense, unless used for professional work."
+5932,Antique Shops,5,Luxury/non-essential expense.
+5621,Women's Ready-To-Wear Stores,2,Necessary for obtaining basic clothing.
+7349,Cleaning and Maintenance Services,3,"Useful for maintaining a clean and functional home, can prevent larger expenses later."
+4722,Travel Agencies,4,"Travel is generally a leisure expense, but can be important for visiting family or work-related travel."
+5193,"Florists Supplies, Nursery Stock and Flowers",4,Primarily a leisure/gift expense.
+3775,Railroad Freight,3,"Business or shipping expenses, classified as useful."
+3684,Semiconductors and Related Devices,3,"Depends on use, could be for business and production, personal projects or home improvement. Categorized as useful."
+5045,"Computers, Computer Peripheral Equipment",3,Can be essential for work or education but also easily overspent on non-essential upgrades.
+3504,Gardening Supplies,3,"Can be essential for growing food or maintaining property value, but also for hobbyists."
+7011,"Lodging - Hotels, Motels, Resorts",2,"Essential for travel, but can be a luxury depending on the purpose and type of lodging."
+8041,Chiropractors,1,"Healthcare related, addressing physical health and well-being, so it is essential for some."
+4214,Motor Freight Carriers and Trucking,2,Essential for businesses or relocation. Can be important for personal needs such as moving.
+6300,"Insurance Sales, Underwriting",1,"Necessary for financial security and legal compliance (e.g., car insurance, health insurance)."
+8011,"Doctors, Physicians",1,Essential for healthcare and medical treatment.
+3509,Industrial Equipment and Supplies,3,"Could be essential for some businesses, but not essential for most individuals."
+7210,Laundry Services,2,"Essential for those without laundry facilities or those with limited time, but can be avoided for cost savings by washing at home."
+5192,"Books, Periodicals, Newspapers",3,"Can be essential for education or professional development, but also for entertainment."
+7542,Car Washes,3,"Useful for car maintenance and appearance, but not strictly essential, unless needed for safety reasons (e.g. removing mud covering lights)."
+3640,"Lighting, Fixtures, Electrical Supplies",2,Essential for home maintenance and safety.
+7393,"Detective Agencies, Security Services",3,"Important for certain businesses or individuals in specific situations, but not generally essential."
+8111,Legal Services and Attorneys,2,"Potentially essential for legal matters, but the need varies."
+3771,Railroad Passenger Transport,2,Essential for transportation in some areas.
+5732,Electronics Stores,3,"Useful for some, but easily overspent on non-essential items. Can be important for home or business needs."
+5094,Precious Stones and Metals,5,"Primarily for luxury goods and investment, not essential."
+5712,"Furniture, Home Furnishings, and Equipment Stores",3,"Can be important for setting up a home, but expenses can be curtailed if needed by buying second hand or holding off on optional items."
+5816,Digital Goods - Games,4,Entertainment and leisure activity. Provides no real need.
+7802,"Recreational Sports, Clubs",4,Entertainment and leisure activity. Provides no real need.
+3389,Non-Precious Metal Services,3,"Business related expenses, depends on the purpose of business to be considered essential."
+8043,"Optometrists, Optical Goods and Eyeglasses",1,Important for eye health and vision correction. Necessary for those requiring glasses or contacts for seeing properly.
+3393,Heat Treating Metal Services,3,"Business related expenses, depends on the purpose of business to be considered essential."
+3174,Upholstery and Drapery Stores,3,"Can be important for home maintenance, but expenses can be curtailed if needed by buying second hand or holding off on optional items."
+3001,Steel Products Manufacturing,3,"Business related expenses, depends on the purpose of business to be considered essential."
+3395,Welding Repair,3,"Can be essential if for safety or critical equipment, but could be postponed if minor or cosmetic."
+3058,"Tools, Parts, Supplies Manufacturing",3,"Business expense that could be crucial for operations, but purchasing new items may be postponed, or cheaper alternatives are used."
+8049,Podiatrists,1,Medical care; often necessary for health and mobility.
+3387,"Electroplating, Plating, Polishing Services",3,Often related to manufacturing or repair. Can be important for product functionality or aesthetics.
+4112,Passenger Railways,2,Form of transportation; could be essential for commuting or travel.
+3405,Ironwork,3,"Could be related to construction, repair, or security. Depends on the specific need."
+5261,Lawn and Garden Supply Stores,3,"Necessary for home maintenance and basic food gardening. Also, some purchases may be cosmetic."
+3144,Floor Covering Stores,3,"Necessary for home improvement or repair projects, but could be postponed or budget options chosen."
+3132,Leather Goods,4,"Generally not essential, but some leather items (work boots, durable bags) could be important."
+3359,Non-Ferrous Metal Foundries,3,A business expense necessary for some manufacturing or construction projects.
+8931,"Accounting, Auditing, and Bookkeeping Services",2,Important for businesses and individuals for financial management and tax compliance.
+8062,Hospitals,1,Essential for healthcare.
+7276,Tax Preparation Services,2,Important for tax compliance. Using these services could avoid costly mistakes.
+4131,Bus Lines,2,Form of transportation; could be essential for commuting or travel.
+3260,Pottery and Ceramics,5,Generally non-essential; often decorative or hobby-related.
+3256,"Brick, Stone, and Related Materials",3,Necessary for construction and repair projects. Could be crucial for necessary home/business upkeep.
+3006,Miscellaneous Fabricated Metal Products,3,"Business expense that could be crucial for operations, but purchasing new items may be postponed, or cheaper alternatives are used."
+7531,Automotive Body Repair Shops,2,Essential if the damage impacts vehicle safety or functionality. Cosmetic repairs are less urgent.
+1711,"Heating, Plumbing, Air Conditioning Contractors",1,Essential for maintaining basic living conditions and safety.
+5947,"Gift, Card, Novelty Stores",5,Discretionary spending; generally not essential.
+3007,Coated and Laminated Products,3,"Business expense that could be crucial for operations, but purchasing new items may be postponed, or cheaper alternatives are used."
+4511,Airlines,2,"For some individuals, it may be essential for travel related to work or family emergencies. For most, it's a non-essential expense."
+3075,"Bolt, Nut, Screw, Rivet Manufacturing",3,"Business expense that could be crucial for operations, but purchasing new items may be postponed, or cheaper alternatives are used."
+3066,Miscellaneous Metals,3,"Business expense that could be crucial for operations, but purchasing new items may be postponed, or cheaper alternatives are used."
+3005,Miscellaneous Metal Fabrication,3,"Business expense that could be crucial for operations, but purchasing new items may be postponed, or cheaper alternatives are used."
+4411,Cruise Lines,5,"A cruise is a luxury leisure activity, typically not essential for basic living or well-being."
+3000,Steelworks,3,"Steelworks can be important for infrastructure and manufacturing. Depending on the context (e.g., a business expense vs. personal home improvement) the need might vary, but it's generally more functional than discretionary."
+5533,Automotive Parts and Accessories Stores,2,"Necessary for maintaining a vehicle. Depending on the specific purchase, it could fall into risk level 1 (e.g., tire replacement for safety) or risk level 3 (e.g., non-essential accessories). Averaging at 2 accounts for important but non urgent parts."
+3008,Steel Drums and Barrels,3,"Steel drums and barrels are typically used in industrial or commercial settings. The necessity depends on the specific application, making it useful but not universally urgent."
+7549,Towing Services,2,"Towing services are often required due to breakdowns or accidents, making them important for safety and transportation. While ideally avoided, they are often essential when needed."
+5941,Sporting Goods Stores,4,"Sporting goods are often related to leisure and recreation, though they may be essential for competitive athletes. Recreational sporting goods are generally a discretionary expense."
+5722,Household Appliance Stores,3,"Household appliances can range from essential (refrigerators) to convenient (dishwashers). While not strictly urgent if a replacement is needed for a broken item, the need to replace certain broken appliance is a maintenance or upgrade expense that makes them an important part of everyday life."
+3009,Fabricated Structural Metal Products,3,"Similar to steelworks, these products are used in construction and manufacturing. The necessity depends on the specific project, but generally more functional than discretionary."
+5733,Music Stores - Musical Instruments,4,"Musical instruments are typically purchased for leisure or professional artistic pursuits. While important for musicians, they are not essential for most people's daily lives."
