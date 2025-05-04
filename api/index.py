@@ -6,7 +6,7 @@ import json
 import re
 
 # Configure the Generative AI model
-genai.configure(api_key="YOUR_API_KEY")
+genai.configure(api_key="AIzaSyDkcG9lVOt6LSg4y29rnKdsKdCMp-37I_I")
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 # Load MCC risk data from CSV into a dictionary
