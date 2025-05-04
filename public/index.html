@@ -674,7 +674,7 @@
         </div>
         <div class="metric-card">
           <div class="metric-title">Monthly Budget</div>
-          <div class="metric-value">€1,500</div>
+          <div class="metric-value", id="monthBudget">€1,500</div>
           <div class="metric-change negative-change">€300 remaining</div>
         </div>
       </div>
@@ -727,7 +727,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
   <script>
-    
+    var monthlyBudgetText = document.getElementById('monthBudget').textContent;
+    var monthlyBudget = parseFloat(await fetch('http://localhost:3000/get_monthly_budget')); // Fetch monthly budget from server
+    monthlyBudgetText.textContent = monthlyBudget; // Update the displayed budget
+    var daysUnderBudgetText = document.getElementById('daysUnderBudget').textContent;
+    var daysUnderBudget = parseInt(await fetch('http://localhost:3000/get_days_under_budget')); // Fetch days under budget from server
+    daysUnderBudgetText.textContent = daysUnderBudget; // Update the displayed days under budget
+
 
     // Sidebar toggle functionality
     document.addEventListener('DOMContentLoaded', function() {
@@ -751,10 +757,10 @@
     });
 
     // Simulated Data
-    var savingsData = await fetch('http://localhost:3000/get_latest_savings?6'); // Actual savings for last 6 months
+    var savingsData = JSON.parse("[" + await fetch('http://localhost:3000/get_latest_savings/6') + "]"); // Actual savings for last 6 months
     const savingsTarget = [300, 300, 300, 300, 300, 300]; // Monthly target for savings
-    var spendingCategories = await fetch('http://localhost:3000/get_latest_spending_categories?5'); // Top 5 spending categories for the current month
-    var spendingData = await fetch('http://localhost:3000/get_latest_category_expenses?5'); // Spending in these categories for the current month
+    var spendingCategories = await fetch('http://localhost:3000/get_latest_spending_categories/5'); // Top 5 spending categories for the current month
+    var spendingData = await fetch('http://localhost:3000/get_latest_category_expenses/5'); // Spending in these categories for the current month
 
     var current_month = new Date().getMonth() + 1; // Get current month (1-12)
     var last_months = [current_month - 5, current_month - 4, current_month - 3, current_month - 2, current_month - 1, current_month]; // Last 6 months
