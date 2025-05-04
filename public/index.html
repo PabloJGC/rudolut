@@ -730,10 +730,10 @@
     fetchData(); // Call the function to fetch data from the server
     async function fetchData() {
       var monthlyBudgetText = document.getElementById('monthBudget').textContent;
-      var monthlyBudget = await fetch('http://localhost:3000/get_monthly_budget'); // Fetch monthly budget from server
+      var monthlyBudget = await fetch('/get_monthly_budget'); // Fetch monthly budget from server
       monthlyBudgetText.textContent = '€' + monthlyBudget; // Update the displayed budget
       var daysUnderBudgetText = document.getElementById('daysUnderBudget').textContent;
-      var daysUnderBudget = await fetch('http://localhost:3000/get_days_under_budget'); // Fetch days under budget from server
+      var daysUnderBudget = await fetch('/get_days_under_budget'); // Fetch days under budget from server
       daysUnderBudgetText.textContent = '€' + daysUnderBudget; // Update the displayed days under budget
 
 
@@ -759,12 +759,12 @@
       });
 
       // Simulated Data
-      var savingsDataStr = await fetch('http://localhost:3000/get_latest_savings/6')
+      var savingsDataStr = await fetch('/get_latest_savings/6')
       var savingsData = JSON.parse(savingsDataStr); // Actual savings for last 6 months
       const savingsTarget = [300, 300, 300, 300, 300, 300]; // Monthly target for savings
-      var spendingCategoriesStr = await fetch('http://localhost:3000/get_latest_spending_categories/5'); // Top 5 spending categories for the current month
+      var spendingCategoriesStr = await fetch('/get_latest_spending_categories/5'); // Top 5 spending categories for the current month
       var spendingCategories = JSON.parse(spendingCategoriesStr); // Top 5 spending categories for the current month
-      var spendingDataStr = await fetch('http://localhost:3000/get_latest_category_expenses/5'); // Spending in these categories for the current month
+      var spendingDataStr = await fetch('/get_latest_category_expenses/5'); // Spending in these categories for the current month
       var spendingData = JSON.parse(spendingDataStr); // Spending in these categories for the current month
 
       var currentMonth = new Date().getMonth() + 1; // Get current month (1-12)
