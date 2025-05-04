@@ -138,6 +138,7 @@ def get_latest_savings(months):
 
 @app.route('/get_behavior_analysis/<value>', methods=['GET'])
 def get_behavior_analysis(value):
+    value = float(value)
     # historial = data.get('historial')
     # nueva_tx = data.get('nueva_tx')
     # Hardcoded example for testing
