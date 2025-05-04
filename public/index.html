@@ -759,7 +759,7 @@
       });
 
       // Simulated Data
-      var savingsDataResponse = await fetch('/get_latest_savings/6')
+      var savingsDataResponse = await fetch('/get_latest_savings')
       var savingsData = savingsDataResponse.json()['latest_savings']; // Actual savings for last 6 months
       const savingsTarget = [300, 300, 300, 300, 300, 300]; // Monthly target for savings
       var spendingCategoriesResponse = await fetch('/get_latest_spending_categories/5'); // Top 5 spending categories for the current month

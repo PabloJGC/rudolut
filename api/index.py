@@ -31,7 +31,7 @@ def get_latest_category_expenses(n):
 def get_latest_spending_categories(n):
     return jsonify({'latest_spending_categories':  ['Food', 'Entertainment', 'Transportation', 'Subscriptions', 'Other']})
 
-@app.route('/get_latest_savings/<months>', methods=['GET'])
+@app.route('/get_latest_savings', methods=['GET'])
 def get_latest_savings(months):
     jsonify({'latest_savings': [200, 300, 400, 500, 600, 700, 800, 900, 1000]})
     # return str([200, 300, 400, 500, 600, 700, 800, 900, 1000])
