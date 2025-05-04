@@ -17,23 +17,23 @@ def serve_index():
 
 @app.route('/get_monthly_budget')
 def get_monthly_budget():
-    return 1500
+    return '1500'
 
 @app.route('/get_days_under_budget')
 def get_days_under_budget():
-    return 19
+    return '19'
 
 @app.route('/get_latest_category_expenses/<n>')
 def get_latest_category_expenses(n):
-    return 19
+    return '19'
 
 @app.route('/get_latest_spending_categories/<n>')
 def get_latest_spending_categories(n):
-    return 19
+    return '19'
 
 @app.route('/get_latest_savings/<months>')
 def about(months):
-    return [200, 300, 400, 500, 600, 700, 800, 900, 1000]
+    return str([200, 300, 400, 500, 600, 700, 800, 900, 1000])
 
 @app.route('/about')
 def about():
