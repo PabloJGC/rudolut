@@ -1,7 +1,10 @@
 from flask import Flask, send_from_directory, jsonify
+from flask_cors import CORS
 import os
 
 app = Flask(__name__, static_folder='../public', static_url_path='')
+
+CORS(app)  # Enable CORS for all routes
 
 @app.route('/')
 def serve_index():
@@ -31,9 +34,9 @@ def get_latest_category_expenses(n):
 def get_latest_spending_categories(n):
     return jsonify({'latest_spending_categories':  ['Food', 'Entertainment', 'Transportation', 'Subscriptions', 'Other']})
 
-@app.route('/get_latest_savings', methods=['GET'])
+@app.route('/get_latest_savings/<months>', methods=['GET'])
 def get_latest_savings(months):
-    jsonify({'latest_savings': [200, 300, 400, 500, 600, 700, 800, 900, 1000]})
+    return jsonify({'latest_savings': [200, 300, 400, 500, 600, 700, 800, 900, 1000]})
     # return str([200, 300, 400, 500, 600, 700, 800, 900, 1000])
 
 @app.route('/about', methods=['GET'])
