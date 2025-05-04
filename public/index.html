@@ -727,160 +727,162 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
   <script>
-    var monthlyBudgetText = document.getElementById('monthBudget').textContent;
-    var monthlyBudget = fetch('http://localhost:3000/get_monthly_budget'); // Fetch monthly budget from server
-    monthlyBudgetText.textContent = '€' + monthlyBudget; // Update the displayed budget
-    var daysUnderBudgetText = document.getElementById('daysUnderBudget').textContent;
-    var daysUnderBudget = fetch('http://localhost:3000/get_days_under_budget'); // Fetch days under budget from server
-    daysUnderBudgetText.textContent = '€' + daysUnderBudget; // Update the displayed days under budget
+    async function fetchData() {
+      var monthlyBudgetText = document.getElementById('monthBudget').textContent;
+      var monthlyBudget = await fetch('http://localhost:3000/get_monthly_budget'); // Fetch monthly budget from server
+      monthlyBudgetText.textContent = '€' + monthlyBudget; // Update the displayed budget
+      var daysUnderBudgetText = document.getElementById('daysUnderBudget').textContent;
+      var daysUnderBudget = await fetch('http://localhost:3000/get_days_under_budget'); // Fetch days under budget from server
+      daysUnderBudgetText.textContent = '€' + daysUnderBudget; // Update the displayed days under budget
 
 
-    // Sidebar toggle functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuToggle = document.getElementById('menuToggle');
-      const sidebar = document.getElementById('sidebar');
-      const content = document.getElementById('content');
-      
-      menuToggle.addEventListener('click', function() {
-        sidebar.classList.toggle('open');
-        content.classList.toggle('sidebar-open');
+      // Sidebar toggle functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('content');
+        
+        menuToggle.addEventListener('click', function() {
+          sidebar.classList.toggle('open');
+          content.classList.toggle('sidebar-open');
+        });
       });
-    });
-  
-    // Display current date
-    const currentDate = new Date();
-    document.getElementById('currentDate').textContent = currentDate.toLocaleDateString('en-US', { 
-      weekday: 'long', 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    });
+    
+      // Display current date
+      const currentDate = new Date();
+      document.getElementById('currentDate').textContent = currentDate.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
 
-    // Simulated Data
-    var savingsDataStr = fetch('http://localhost:3000/get_latest_savings/6')
-    var savingsData = JSON.parse(savingsDataStr); // Actual savings for last 6 months
-    const savingsTarget = [300, 300, 300, 300, 300, 300]; // Monthly target for savings
-    var spendingCategoriesStr = fetch('http://localhost:3000/get_latest_spending_categories/5'); // Top 5 spending categories for the current month
-    var spendingCategories = JSON.parse(spendingCategoriesStr); // Top 5 spending categories for the current month
-    var spendingDataStr = fetch('http://localhost:3000/get_latest_category_expenses/5'); // Spending in these categories for the current month
-    var spendingData = JSON.parse(spendingDataStr); // Spending in these categories for the current month
+      // Simulated Data
+      var savingsDataStr = await fetch('http://localhost:3000/get_latest_savings/6')
+      var savingsData = JSON.parse(savingsDataStr); // Actual savings for last 6 months
+      const savingsTarget = [300, 300, 300, 300, 300, 300]; // Monthly target for savings
+      var spendingCategoriesStr = await fetch('http://localhost:3000/get_latest_spending_categories/5'); // Top 5 spending categories for the current month
+      var spendingCategories = JSON.parse(spendingCategoriesStr); // Top 5 spending categories for the current month
+      var spendingDataStr = await fetch('http://localhost:3000/get_latest_category_expenses/5'); // Spending in these categories for the current month
+      var spendingData = JSON.parse(spendingDataStr); // Spending in these categories for the current month
 
-    var currentMonth = new Date().getMonth() + 1; // Get current month (1-12)
-    var lastMonths = [currentMonth - 5, currentMonth - 4, currentMonth - 3, currentMonth - 2, currentMonth - 1, currentMonth]; // Last 6 months
+      var currentMonth = new Date().getMonth() + 1; // Get current month (1-12)
+      var lastMonths = [currentMonth - 5, currentMonth - 4, currentMonth - 3, currentMonth - 2, currentMonth - 1, currentMonth]; // Last 6 months
 
-    // Monthly Savings Bar Chart
-    const monthlySavingsCtx = document.getElementById('monthlySavingsChart').getContext('2d');
-    var monthlySavingsChart = new Chart(monthlySavingsCtx, {
-      type: 'bar',
-      data: {
-        // labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        // labels should be the last 6 months
-        labels: lastMonths.map(month => {
-          const date = new Date();
-          date.setMonth(month - 1); // Set month (0-11)
-          return date.toLocaleString('default', { month: 'short' });
-        }),
-        datasets: [
-          {
-            label: 'Actual Savings (€)',
-            data: savingsData,
-            backgroundColor: 'rgba(40, 167, 69, 0.6)',
-            borderColor: 'rgba(40, 167, 69, 1)',
-            borderWidth: 1
-          },
-          {
-            label: 'Target Savings (€)',
-            data: savingsTarget,
-            backgroundColor: 'rgba(23, 162, 184, 0.6)',
-            borderColor: 'rgba(23, 162, 184, 1)',
-            borderWidth: 1
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            grid: {
-              color: 'rgba(0,0,0,0.05)'
+      // Monthly Savings Bar Chart
+      const monthlySavingsCtx = document.getElementById('monthlySavingsChart').getContext('2d');
+      var monthlySavingsChart = new Chart(monthlySavingsCtx, {
+        type: 'bar',
+        data: {
+          // labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          // labels should be the last 6 months
+          labels: lastMonths.map(month => {
+            const date = new Date();
+            date.setMonth(month - 1); // Set month (0-11)
+            return date.toLocaleString('default', { month: 'short' });
+          }),
+          datasets: [
+            {
+              label: 'Actual Savings (€)',
+              data: savingsData,
+              backgroundColor: 'rgba(40, 167, 69, 0.6)',
+              borderColor: 'rgba(40, 167, 69, 1)',
+              borderWidth: 1
+            },
+            {
+              label: 'Target Savings (€)',
+              data: savingsTarget,
+              backgroundColor: 'rgba(23, 162, 184, 0.6)',
+              borderColor: 'rgba(23, 162, 184, 1)',
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(0,0,0,0.05)'
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              }
             }
           },
-          x: {
-            grid: {
+          plugins: {
+            legend: {
               display: false
             }
           }
-        },
-        plugins: {
-          legend: {
-            display: false
-          }
         }
-      }
-    });
+      });
 
-    // Spending Breakdown Pie Chart
-    const spendingBreakdownCtx = document.getElementById('spendingBreakdownChart').getContext('2d');
-    const spendingBreakdownChart = new Chart(spendingBreakdownCtx, {
-      type: 'doughnut',
-      data: {
-        labels: spendingCategories,
-        datasets: [{
-          data: spendingData,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.8)',
-            'rgba(54, 162, 235, 0.8)',
-            'rgba(255, 206, 86, 0.8)',
-            'rgba(75, 192, 192, 0.8)',
-            'rgba(153, 102, 255, 0.8)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              boxWidth: 12,
-              padding: 10,
-              font: {
+      // Spending Breakdown Pie Chart
+      const spendingBreakdownCtx = document.getElementById('spendingBreakdownChart').getContext('2d');
+      const spendingBreakdownChart = new Chart(spendingBreakdownCtx, {
+        type: 'doughnut',
+        data: {
+          labels: spendingCategories,
+          datasets: [{
+            data: spendingData,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.8)',
+              'rgba(54, 162, 235, 0.8)',
+              'rgba(255, 206, 86, 0.8)',
+              'rgba(75, 192, 192, 0.8)',
+              'rgba(153, 102, 255, 0.8)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                boxWidth: 12,
+                padding: 10,
+                font: {
+                  size: 13
+                }
+              }
+            },
+            tooltip: {
+              bodyFont: {
+                size: 12
+              },
+              titleFont: {
                 size: 13
               }
             }
           },
-          tooltip: {
-            bodyFont: {
-              size: 12
-            },
-            titleFont: {
-              size: 13
+          layout: {
+            padding: {
+              top: 5,
+              bottom: 5,
+              left: 5,
+              right: 5
             }
-          }
-        },
-        layout: {
-          padding: {
-            top: 5,
-            bottom: 5,
-            left: 5,
-            right: 5
-          }
-        },
-        cutout: '60%'
-      }
-    });
+          },
+          cutout: '60%'
+        }
+      });
 
+    }
     // Add button click events
     document.querySelector('.add-money').addEventListener('click', function() {
       

@@ -17,7 +17,7 @@ def serve_index():
 
 @app.route('/get_monthly_budget', methods=['GET'])
 def get_monthly_budget():
-    return '1500'
+    return '1200'
 
 @app.route('/get_days_under_budget', methods=['GET'])
 def get_days_under_budget():
