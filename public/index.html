@@ -727,6 +727,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
   <script>
+    fetchData(); // Call the function to fetch data from the server
     async function fetchData() {
       var monthlyBudgetText = document.getElementById('monthBudget').textContent;
       var monthlyBudget = await fetch('http://localhost:3000/get_monthly_budget'); // Fetch monthly budget from server
