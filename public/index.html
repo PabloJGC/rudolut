@@ -760,12 +760,13 @@
 
       // Simulated Data
       var savingsDataStr = await fetch('/get_latest_savings/6')
-      var savingsData = JSON.parse(savingsDataStr); // Actual savings for last 6 months
+      print(savingsDataStr)
+      var savingsData = JSON.parse("[" + savingsDataStr + "]"); // Actual savings for last 6 months
       const savingsTarget = [300, 300, 300, 300, 300, 300]; // Monthly target for savings
       var spendingCategoriesStr = await fetch('/get_latest_spending_categories/5'); // Top 5 spending categories for the current month
-      var spendingCategories = JSON.parse(spendingCategoriesStr); // Top 5 spending categories for the current month
+      var spendingCategories = JSON.parse("[" + spendingCategoriesStr + "]"); // Top 5 spending categories for the current month
       var spendingDataStr = await fetch('/get_latest_category_expenses/5'); // Spending in these categories for the current month
-      var spendingData = JSON.parse(spendingDataStr); // Spending in these categories for the current month
+      var spendingData = JSON.parse("[" + spendingDataStr + "]"); // Spending in these categories for the current month
 
       var currentMonth = new Date().getMonth() + 1; // Get current month (1-12)
       var lastMonths = [currentMonth - 5, currentMonth - 4, currentMonth - 3, currentMonth - 2, currentMonth - 1, currentMonth]; // Last 6 months
