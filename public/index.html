@@ -731,7 +731,6 @@
     async function fetchData() {
       var monthlyBudgetText = document.getElementById('monthBudget').textContent;
       var monthlyBudget = await fetch('/get_monthly_budget'); // Fetch monthly budget from server
-      alert(monthlyBudget.text()); // Display the fetched budget in an alert for debugging
       monthlyBudgetText.textContent = '€' + monthlyBudget.text(); // Update the displayed budget
       var daysUnderBudgetText = document.getElementById('daysUnderBudget').textContent;
       var daysUnderBudget = await fetch('/get_days_under_budget'); // Fetch days under budget from server
@@ -761,12 +760,15 @@
 
       // Simulated Data
       var savingsDataResponse = await fetch('/get_latest_savings/6')
-      var savingsData = savingsDataResponse.json().latest_savings; // Actual savings for last 6 months
+      var savingsData = await savingsDataResponse.json()
+      savingsData = savingsData.latest_savings; // Actual savings for last 6 months
       var savingsTarget = [300, 300, 300, 300, 300, 300]; // Monthly target for savings
       var spendingCategoriesResponse = await fetch('/get_latest_spending_categories/5'); // Top 5 spending categories for the current month
-      var spendingCategories = spendingCategoriesResponse.json().latest_spending_categories; // Top 5 spending categories for the current month
+      var spendingCategories = await spendingCategoriesResponse.json()
+      spendingCategories = spendingCategories.latest_spending_categories; // Top 5 spending categories for the current month
       var spendingDataResponse = await fetch('/get_latest_category_expenses/5'); // Spending in these categories for the current month
-      var spendingData = spendingDataResponse.json().latest_category_expenses; // Spending in these categories for the current month
+      var spendingData = await spendingDataResponse.json()
+      spendingData = spendingData.latest_category_expenses; // Spending in these categories for the current month
       alert(spendingDataResponse.json());
 
       var currentMonth = new Date().getMonth() + 1; // Get current month (1-12)
