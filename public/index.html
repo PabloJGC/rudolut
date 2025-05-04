@@ -32,9 +32,238 @@
       background-color: var(--background);
       color: var(--text-primary);
       line-height: 1.5;
+      padding: 0;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    
+    .main-container {
+      display: flex;
+      min-height: 100vh;
+    }
+    
+    .sidebar {
+      width: 0;
+      background-color: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: width 0.3s ease;
+      position: fixed;
+      height: 100vh;
+      z-index: 100;
+    }
+    
+    .sidebar.open {
+      width: 280px;
+    }
+    
+    .sidebar-content {
+      width: 280px;
+      padding: 24px 0;
+    }
+    
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      padding: 0 24px 24px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+    
+    .profile-image {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--primary-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      margin-right: 16px;
+    }
+    
+    .profile-info h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+    
+    .profile-info p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    
+    .menu-list {
+      list-style: none;
+    }
+    
+    .menu-item {
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .menu-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    .menu-item i {
+      margin-right: 30px;
+      width: 24px;
+      text-align: center;
+    }
+    
+    .menu-divider {
+      height: 1px;
+      background-color: rgba(0,0,0,0.08);
+      margin: 8px 0;
+    }
+    
+    .content-area {
+      flex: 1;
+      margin-left: 0;
+      transition: margin-left 0.3s ease;
       padding: 24px;
       max-width: 1200px;
       margin: 0 auto;
+    }
+    
+    .content-area.sidebar-open {
+      margin-left: 280px;
+    }
+    
+    .menu-toggle {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-primary);
+      margin-right: 16px;
+    }
+    
+    /* Current Balance Card */
+    .balance-container {
+      background-color: var(--surface);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .balance-info h2 {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      margin: 0;
+    }
+    
+    .balance-amount {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .balance-change {
+      font-size: 14px;
+      color: var(--accent-positive);
+    }
+
+    /* Inbox Section */
+    .inbox-container {
+      background-color: var(--surface);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 32px;
+    }
+
+    .inbox-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .inbox-header h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .notification-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .notification-item:last-child {
+      border-bottom: none;
+    }
+
+    .notification-content {
+      flex-grow: 1;
+      margin-right: 16px;
+    }
+
+    .notification-title {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .notification-category {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .notification-time {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .notification-dismiss {
+      color: var(--primary-green);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+    }
+
+    .notification-dismiss:hover {
+      background-color: rgba(105, 181, 120, 0.1);
+    }
+
+    .show-more-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: none;
+      border: none;
+      color: var(--primary-blue);
+      font-weight: 500;
+      cursor: pointer;
+      text-align: center;
+      margin-top: 8px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .show-more-btn:hover {
+      background-color: rgba(62, 146, 204, 0.05);
     }
 
     h1, h2, h3, h4 {
@@ -247,8 +476,29 @@
       .pie-chart-wrapper {
         min-height: 290px;
       }
+      
+      .balance-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .balance-actions {
+        margin-top: 16px;
+      }
+      
+      .sidebar.open {
+        width: 240px;
+      }
+      
+      .sidebar-content {
+        width: 240px;
+      }
+      
+      .content-area.sidebar-open {
+        margin-left: 240px;
+      }
     }
-
+    
     @media (max-width: 768px) {
       .stats-container {
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -257,92 +507,238 @@
       .action-buttons {
         flex-direction: column;
       }
+      
+      .sidebar.open {
+        width: 100%;
+      }
+      
+      .sidebar-content {
+        width: 100%;
+      }
+      
+      .content-area.sidebar-open {
+        margin-left: 0;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+      
+      .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .current-date {
+        margin-top: 8px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <div class="dashboard-header">
-    <h1 class="header-title">Your Financial Dashboard</h1>
-    <div class="current-date" id="currentDate"></div>
-  </div>
-
-  <!-- Action Buttons (Replacing Progress Rings) -->
-  <div class="action-buttons">
-    <button class="action-button add-money">
-      <div class="button-icon">+</div>
-      <div class="button-text">Add Money</div>
-    </button>
-    <button class="action-button send-money">
-      <div class="button-icon">→</div>
-      <div class="button-text">Send Money</div>
-    </button>
-  </div>
-
-  <!-- Key Stats -->
-  <div class="stats-container">
-    <div class="metric-card">
-      <div class="metric-title">Days Under Budget</div>
-      <div class="metric-value" id="daysUnderBudget">8 / 30</div>
-      <div class="metric-change">On track</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-title">Total Saved This Month</div>
-      <div class="metric-value" id="totalSaved">€210.50</div>
-      <div class="metric-change">+€45.30 from last month</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-title">Monthly Budget</div>
-      <div class="metric-value">€1,500</div>
-      <div class="metric-change negative-change">€300 remaining</div>
-    </div>
-  </div>
-
-  <!-- Charts Section -->
-  <div class="charts-container">
-    <div class="chart-card">
-      <div class="chart-header">
-        <h3 class="chart-title">Monthly Savings Trend</h3>
-        <select id="savingsPeriod">
-          <option value="6m">Last 6 months</option>
-          <option value="1y">Last year</option>
-        </select>
-      </div>
-      <div class="chart-container">
-        <canvas id="monthlySavingsChart"></canvas>
-      </div>
-      <div class="chart-legend">
-        <div class="legend-item">
-          <div class="legend-color" style="background-color: rgba(40, 167, 69, 0.6)"></div>
-          <span>Actual Savings</span>
+  <div class="main-container">
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-content">
+        <div class="sidebar-header">
+          <div class="profile-image">JD</div>
+          <div class="profile-info">
+            <h3>John Doe</h3>
+            <p>Premium Account</p>
+          </div>
         </div>
-        <div class="legend-item">
-          <div class="legend-color" style="background-color: rgba(23, 162, 184, 0.6)"></div>
-          <span>Target Savings</span>
+        <ul class="menu-list">
+          <li class="menu-item">
+            <i class="fas fa-user"></i> Profile
+          </li>
+          <li class="menu-item">
+            <i class="fas fa-bell"></i> Notifications
+          </li>
+          <li class="menu-divider"></li>
+          <li class="menu-item">
+            <i class="fas fa-question-circle"></i> Help
+          </li>
+          <li class="menu-item">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Main Content Area -->
+    <div class="content-area" id="content">
+      <div class="dashboard-header">
+        <div style="display: flex; align-items: center;">
+          <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h1 class="header-title">Your Financial Dashboard</h1>
+        </div>
+        <div class="current-date" id="currentDate"></div>
+      </div>
+      
+      <!-- Current Balance -->
+      <div class="balance-container">
+        <div class="balance-info">
+          <h2>Current Balance</h2>
+          <div class="balance-amount">€4,275.50</div>
+          <div class="balance-change">+€125.30 this week</div>
+        </div>
+        <div class="balance-actions">
+          <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 500;">View Statement</a>
         </div>
       </div>
-    </div>
 
-    <div class="chart-card">
-      <div class="chart-header">
-        <h3 class="chart-title">Spending Breakdown</h3>
-        <select id="spendingPeriod">
-          <option value="1m">This month</option>
-          <option value="3m">Last 3 months</option>
-        </select>
+      <!-- Inbox Section -->
+      <div class="inbox-container">
+        <div class="inbox-header">
+          <h2>Inbox</h2>
+          <span id="notification-count" style="background-color: var(--primary-blue); color: white; padding: 2px 8px; border-radius: 12px; font-size: 14px;">5</span>
+        </div>
+        <div id="notifications-list">
+          <div class="notification-item">
+            <div class="notification-content">
+              <div class="notification-title">Payment Received</div>
+              <div class="notification-category">Payment</div>
+              <div class="notification-time">Today, 10:45 AM</div>
+            </div>
+            <button class="notification-dismiss" onclick="dismissNotification(this)">
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+          <div class="notification-item">
+            <div class="notification-content">
+              <div class="notification-title">Monthly Budget Alert</div>
+              <div class="notification-category">Budget</div>
+              <div class="notification-time">Yesterday, 4:20 PM</div>
+            </div>
+            <button class="notification-dismiss" onclick="dismissNotification(this)">
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+          <div class="notification-item">
+            <div class="notification-content">
+              <div class="notification-title">Bill Reminder</div>
+              <div class="notification-category">Bills</div>
+              <div class="notification-time">Yesterday, 9:15 AM</div>
+            </div>
+            <button class="notification-dismiss" onclick="dismissNotification(this)">
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+          <div class="notification-item">
+            <div class="notification-content">
+              <div class="notification-title">New Feature Available</div>
+              <div class="notification-category">System</div>
+              <div class="notification-time">May 2, 2025</div>
+            </div>
+            <button class="notification-dismiss" onclick="dismissNotification(this)">
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+          <div class="notification-item">
+            <div class="notification-content">
+              <div class="notification-title">Savings Goal Achieved</div>
+              <div class="notification-category">Goals</div>
+              <div class="notification-time">May 1, 2025</div>
+            </div>
+            <button class="notification-dismiss" onclick="dismissNotification(this)">
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
+        <button class="show-more-btn" id="show-more-btn">Show more</button>
       </div>
-      <div class="pie-container">
-        <div class="pie-chart-wrapper">
-          <canvas id="spendingBreakdownChart"></canvas>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="action-button add-money">
+          <div class="button-icon">+</div>
+          <div class="button-text">Add Money</div>
+        </button>
+        <button class="action-button send-money">
+          <div class="button-icon">→</div>
+          <div class="button-text">Send Money</div>
+        </button>
+      </div>
+
+      <!-- Key Stats -->
+      <div class="stats-container">
+        <div class="metric-card">
+          <div class="metric-title">Days Under Budget</div>
+          <div class="metric-value" id="daysUnderBudget">8 / 30</div>
+          <div class="metric-change">On track</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-title">Total Saved This Month</div>
+          <div class="metric-value" id="totalSaved">€210.50</div>
+          <div class="metric-change">+€45.30 from last month</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-title">Monthly Budget</div>
+          <div class="metric-value">€1,500</div>
+          <div class="metric-change negative-change">€300 remaining</div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts-container">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title">Monthly Savings Trend</h3>
+            <select id="savingsPeriod">
+              <option value="6m">Last 6 months</option>
+              <option value="1y">Last year</option>
+            </select>
+          </div>
+          <div class="chart-container">
+            <canvas id="monthlySavingsChart"></canvas>
+          </div>
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: rgba(40, 167, 69, 0.6)"></div>
+              <span>Actual Savings</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: rgba(23, 162, 184, 0.6)"></div>
+              <span>Target Savings</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title">Spending Breakdown</h3>
+            <select id="spendingPeriod">
+              <option value="1m">This month</option>
+              <option value="3m">Last 3 months</option>
+            </select>
+          </div>
+          <div class="pie-container">
+            <div class="pie-chart-wrapper">
+              <canvas id="spendingBreakdownChart"></canvas>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Chart.js Library -->
+  <!-- Chart.js Library and Font Awesome for icons -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
   <script>
+    // Sidebar toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const sidebar = document.getElementById('sidebar');
+      const content = document.getElementById('content');
+      
+      menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
+        content.classList.toggle('sidebar-open');
+      });
+    });
+  
     // Display current date
     const currentDate = new Date();
     document.getElementById('currentDate').textContent = currentDate.toLocaleDateString('en-US', { 
@@ -474,6 +870,32 @@
     document.querySelector('.send-money').addEventListener('click', function() {
       alert('Send Money feature clicked');
       // Here you would implement the send money functionality
+    });
+    
+    // Notification system functions
+    function dismissNotification(button) {
+      const notificationItem = button.closest('.notification-item');
+      notificationItem.style.opacity = '0';
+      setTimeout(() => {
+        notificationItem.remove();
+        updateNotificationCount();
+      }, 300);
+    }
+    
+    function updateNotificationCount() {
+      const count = document.querySelectorAll('.notification-item').length;
+      document.getElementById('notification-count').textContent = count;
+      
+      if (count === 0) {
+        document.getElementById('notifications-list').innerHTML = 
+          '<div style="text-align: center; padding: 20px; color: var(--text-secondary);">No new notifications</div>';
+        document.getElementById('show-more-btn').style.display = 'none';
+      }
+    }
+    
+    document.getElementById('show-more-btn').addEventListener('click', function() {
+      alert('This would load more notifications from the server');
+      // Here you would implement loading more notifications
     });
   </script>
 </body>
