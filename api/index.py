@@ -15,26 +15,26 @@ def serve_index():
 #     else:
 #         return 'File not found', 404
 
-@app.route('/get_monthly_budget')
+@app.route('/get_monthly_budget', methods=['GET'])
 def get_monthly_budget():
     return '1500'
 
-@app.route('/get_days_under_budget')
+@app.route('/get_days_under_budget', methods=['GET'])
 def get_days_under_budget():
     return '19'
 
-@app.route('/get_latest_category_expenses/<n>')
+@app.route('/get_latest_category_expenses/<n>', methods=['GET'])
 def get_latest_category_expenses(n):
     return '19'
 
-@app.route('/get_latest_spending_categories/<n>')
+@app.route('/get_latest_spending_categories/<n>', methods=['GET'])
 def get_latest_spending_categories(n):
     return '19'
 
-@app.route('/get_latest_savings/<months>')
+@app.route('/get_latest_savings/<months>', methods=['GET'])
 def about(months):
     return str([200, 300, 400, 500, 600, 700, 800, 900, 1000])
 
-@app.route('/about')
+@app.route('/about', methods=['GET'])
 def about():
     return 'About'
